@@ -20,7 +20,7 @@ async function loginUser(credentials) {
     .catch(err => console.log(err));
 }
 
-export default function Login({ setToken }) {
+export default function Login({ setToken, token }) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [errorMessage, setErrorMessage] = useState();
@@ -40,16 +40,17 @@ export default function Login({ setToken }) {
 
   return (
     <form className='login-form' onSubmit={handleSubmit}>
-      <label>
+      <label className='form-label'>
         Username*
-        <input type='text' name='username' required onChange={e => setUsername(e.target.value)} />
+        <input className='form-control' type='text' name='username' required onChange={e => setUsername(e.target.value)} />
       </label>
-      <label>
+      <label className='form-label'>
         Password*
-        <input type='password' name='password' required onChange={e => setPassword(e.target.value)} />
+        <input className='form-control' type='password' name='password' required onChange={e => setPassword(e.target.value)} />
       </label>
-      <button type='submit'>Log In</button>
-      <small>{errorMessage}</small>
+      <button className='btn btn-primary' type='submit'>Log In</button>
+      <div className='error-message'>{errorMessage}</div>
+      {/* <div>Your token is {token}</div> */}
     </form>
   );
 }

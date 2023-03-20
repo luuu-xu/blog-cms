@@ -4,7 +4,6 @@ export default function useToken() {
   const getToken = () => {
     const tokenString = sessionStorage.getItem('token');
     const userToken = JSON.parse(tokenString);
-    // console.log('usertoken', userToken);
     return userToken;
   }
 
@@ -17,7 +16,9 @@ export default function useToken() {
 
   const clearToken = () => {
     sessionStorage.removeItem('token');
+    // console.log('session removed');
     setToken();
+    // console.log('settoken() ran the new token is', token)
   }
 
   return {

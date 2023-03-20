@@ -1,9 +1,15 @@
 .login-form {
+  height: 100vh;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-small {
+.error-message {
   color: red;
 }
