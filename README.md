@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Blog CMS
+- This is a simple blog CMS website created with React and Bootstrap. 
+- The website allows the admin to manage blog posts and comments.
+- This client side app uses the [REST Blog API](https://github.com/luuu-xu/blog-api).
+- See the blog website with published posts built with Next.js: [Blog NextJS](https://github.com/luuu-xu/blog-nextjs).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting Started
+To get started with the website, follow these steps:
 
-## Available Scripts
+1. Clone the repository to your local machine.
+2. Run npm install to install the project dependencies.
+3. Run npm start to start the development server.
+4. Open http://localhost:3000 in your web browser to view the website.
 
-In the project directory, you can run:
+## Features
+The website includes the following features:
 
-### `npm start`
+- View all blog posts.
+- View a specific blog post by ID.
+- View all comments for a specific blog post.
+- TODO: Add a new comment for a specific blog post.
+- Create a new blog post.
+- Edit an existing blog post.
+- Delete an existing blog post.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependencies
+The following dependencies are used in this project:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- react: JavaScript library for building user interfaces.
+- react-dom: Entry point to the DOM and server renderer for React.
+- react-router-dom: DOM bindings for React Router.
+- bootstrap: Popular front-end open source toolkit.
 
-### `npm test`
+## Pages
+The website includes the following pages:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- /posts: The homepage, which displays all blog posts.
+- /posts/:postId: Displays a specific blog post by ID and its comments. Allows users to edit an existing blog post.
+- /posts/new: Allows users to create a new blog post.
 
-### `npm run build`
+## Components
+The website includes the following components:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Navbar: The website header navbar.
+- Footer: The website footer.
+- useToken: A custom hook for storing JWT to sessionStorage, allowing only admin to manage contents.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## API Endpoints
+The website uses the following API endpoints:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- GET /api/posts: Get all blog posts.
+- GET /api/posts/:postId: Get a specific blog post by ID.
+- GET /api/posts/:postId/comments: Get all comments for a specific blog post.
+- TODO: POST /api/posts/:postId/comments: Create a new comment for a specific blog post.
+- POST /api/posts: Create a new blog post.
+- PUT /api/posts/:postId: Update an existing blog post.
+- DELETE /api/posts/:postId: Delete an existing blog post.
 
-### `npm run eject`
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
