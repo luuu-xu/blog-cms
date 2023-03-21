@@ -1,0 +1,9 @@
+@media (max-width: 720px) {
+  body {
+    margin-bottom: 0;
+  }
+
+  .fixed-bottom {
+    position: relative !important;
+  }
+}

@@ -1,5 +1,6 @@
 import '../styles/Login.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 async function loginUser(credentials) {
   return fetch('http://localhost:3000/auth/login', {
@@ -20,10 +21,11 @@ async function loginUser(credentials) {
     .catch(err => console.log(err));
 }
 
-export default function Login({ setToken, token }) {
+export default function Login({ setToken }) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [errorMessage, setErrorMessage] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,25 +34,38 @@ export default function Login({ setToken, token }) {
       password,
     });
     if (!token) {
-      setErrorMessage('Auth failed');
+      setErrorMessage('Authentication failed');
     } else {
       setToken(token);
+      navigate('/posts');
     }
   }
 
   return (
     <form className='login-form' onSubmit={handleSubmit}>
-      <label className='form-label'>
-        Username*
-        <input className='form-control' type='text' name='username' required onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label className='form-label'>
-        Password*
-        <input className='form-control' type='password' name='password' required onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button className='btn btn-primary' type='submit'>Log In</button>
-      <div className='error-message'>{errorMessage}</div>
-      {/* <div>Your token is {token}</div> */}
+      <h1 className='mb-4'>Blog CMS</h1>
+      <div className='row mb-3'>
+        <label className='form-label'>
+          Username*
+          <input className='form-control' type='text' name='username' required onChange={e => setUsername(e.target.value)} />
+        </label>
+      </div>
+      <div className='row mb-3'>
+        <label className='form-label'>
+          Password*
+          <input className='form-control' type='password' name='password' required onChange={e => setPassword(e.target.value)} />
+        </label>
+      </div>
+      <button className='btn btn-primary mb-3' type='submit'>Log In</button>
+      {
+        errorMessage
+        ?
+        <div className="alert alert-danger d-flex align-items-center px-3 py-2">
+          <div>{errorMessage}</div>
+        </div>
+        :
+        ''
+      }
     </form>
   );
 }
